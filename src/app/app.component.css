@@ -1,0 +1,39 @@
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 22px;
+    width: 253px;
+    height: 155px;
+    /* color: #999999; */
+}
+
+.mat-card:hover{
+    background-color: #803ec2b6;
+    transition: 300ms ease-in;
+    color: white;
+}
+
+.message{
+    font-size: 12px;
+}
+
+.openAccount{
+    width: 172px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid #663399;
+    color: #663399;margin-top: 24px;
+}
+
+.openAccount:hover{
+    background-color:#663399;
+    color: white
+}

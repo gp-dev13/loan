@@ -1,0 +1,82 @@
+<div  style="width:540px;height: 500px;display: flex;justify-content: center;align-items: center;">
+    <img src="../assets//images/circle.svg" style="width: 750px;
+  position: absolute;
+  right: -84px;
+    top: -197px;
+  ">
+  <img src="../assets/images/accounting_dots.svg" style="position: absolute;
+  z-index: 0;
+  top: 599px;
+  width: 314px;
+  right: 82px;
+" >
+    <div style="width: 60%;height:100%;background-color: white;border-radius: 10px;border: 0px;box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);position: relative ;">
+      <div style="height: 9%;background-color: rgb(252, 246, 246);position: relative;border-radius: 10px 10px 0px 0px;display: flex;justify-content: center;align-items: flex-end;">
+        <p style="color: #222222;">Eligibilty Calculator</p>
+      </div>
+      <form [formGroup]="emiForm" style="height:90%;display: flex;flex-direction: column;align-items: center;justify-content: space-evenly;" >
+        <div style="width:90%;" >
+            <h5 style="margin:0px;font-weight: 500;">Monthly Income</h5>
+            <p style="position: relative;
+            top: 10px;
+            font-size: 25px;">&#x20B9; &nbsp;{{monthlyIncomeValue}}</p>
+            <mat-slider min="0" max="100000" step="1000" color="primary" (input)="updateMonthlyIncomeValue($event)"></mat-slider>
+            <div style="width: 90%;
+            height: 22px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;">
+                <p >{{min}}</p>
+                <p >{{max}}</p>
+            </div>
+        </div>
+        <div style="width:90%" >
+            <h5 style="margin:0px;font-weight: 500;">Monthly Expenses</h5>
+            <p style="position: relative;
+            top: 10px;
+            font-size: 25px;">&#x20B9; &nbsp;{{monthlyExpensesValue}}</p>
+            <mat-slider min="0" max="100000" step="1000" color="primary" (input)="updateMonthlyExpensesValue($event)"></mat-slider>
+        </div>
+        <div style="width:90%" >
+            <h5 style="margin:0px;font-weight: 500;">Repayment Tenure</h5>
+            <mat-form-field>
+                <mat-select formControlName="repaymentTenure">
+                    <mat-option value="6">6 Months</mat-option>
+                    <mat-option value="12" >12 Months</mat-option>
+                    <mat-option value="24">24 Months</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div style="width:90%;display: flex;justify-content: space-between;padding-right: 34px;" >
+        
+            <h5 style="font-weight: 500;" >Do you have any existing loan?</h5>
+            <mat-slide-toggle color="primary" formControlName="existingLoan" aria-setsize="sm" ></mat-slide-toggle>
+        </div>
+        <div style="width:90%" >
+            <h5 style="font-weight: 500;">EMI of existing loan (optional)</h5>
+            <mat-form-field  hideRequiredMarker=true floatLabel="never">    
+                  <input matInput formControlName="existingLoanAmount" placeholder="&#x20B9;15,000" required>
+             </mat-form-field>
+        </div>
+
+      </form>
+    </div>
+    <div style="width:30%;height:60%;background-color: #663399;border-radius: 0px 10px 10px 0px;margin-left: 6px;box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;">
+        <div style="height: 60%;display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;">
+            <div>
+                <h5 style="margin:0px;color: rgb(156, 153, 153);font-weight: 500;">Loan Amount</h5>
+                <p style="color:rgb(233, 233, 233);text-align: center;">&#x20B9; &nbsp;1,00,000</p>
+            </div>
+            <div>
+                <h5 style="margin:0px;color: rgb(156, 153, 153);font-weight: 500;margin: 0;">Your EMI will be</h5>
+                <p style="color:rgb(233, 233, 233);text-align: center;">&#x20B9; &nbsp;15,000</p>
+            </div>
+            <button mat-raised-button (click)="getMoney()">GET MONEY</button>
+            <!-- <button style="    font-size: 9px;
+            width: 108px;
+            height: 30px;
+            border-radius: 15px;
+            border: none;">GET MONEY</button> -->
+        </div>
+    </div>
+  </div>
